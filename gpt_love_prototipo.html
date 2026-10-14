@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#210d19">
+<title>GPT LOVE — Seu universo de amor</title>
+<style>
+:root{--bg:#160a12;--panel:#24111d;--panel2:#301625;--pink:#ff7ba9;--pink2:#ffb4ce;--text:#fff4f8;--muted:#c9a9b8;--line:#573044}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#59213f 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+button,input{font:inherit}button{cursor:pointer}.wrap{max-width:1120px;margin:auto;padding:24px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0 26px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.3px;font-size:1.22rem}.logo{display:grid;place-items:center;width:43px;height:43px;border-radius:15px;background:linear-gradient(145deg,#ff9cbd,#c42f6b);box-shadow:0 8px 30px #ff4f8b30;font-size:23px}.tag{border:1px solid var(--line);color:var(--pink2);border-radius:999px;padding:6px 12px;font-size:.78rem}
+.hero{padding:38px 0 30px;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}.eyebrow{color:var(--pink2);font-size:.8rem;text-transform:uppercase;letter-spacing:2px;font-weight:700}h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.02;letter-spacing:-2px;margin:15px 0 20px}h1 span{color:var(--pink)}.lead{max-width:560px;color:var(--muted);font-size:1.08rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.primary,.secondary{border-radius:14px;padding:12px 18px;font-weight:750;border:1px solid transparent}.primary{background:linear-gradient(120deg,#ff8eb5,#e84e87);color:#2b0d1b;box-shadow:0 8px 24px #f85b9530}.secondary{background:#ffffff08;border-color:var(--line);color:var(--text)}.heart-scene{min-height:280px;border:1px solid #6a3550;border-radius:28px;background:linear-gradient(150deg,#39172b,#1c0c17);display:grid;place-items:center;position:relative;overflow:hidden}.heart-scene:before,.heart-scene:after{content:"";position:absolute;border:1px solid #ff8bb51c;border-radius:50%;width:240px;height:240px}.heart-scene:after{width:330px;height:330px}.big-heart{font-size:clamp(6rem,15vw,10rem);filter:drop-shadow(0 0 26px #ff4d8b77);z-index:1;animation:pulse 3s ease-in-out infinite}.spark{position:absolute;color:#ffb6d0}.s1{top:22%;left:24%}.s2{top:25%;right:22%;font-size:1.5rem}.s3{bottom:20%;right:27%}@keyframes pulse{50%{transform:scale(1.06)}}
+.section-title{margin:22px 0 14px;font-size:1.25rem}.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.mode{border:1px solid var(--line);background:linear-gradient(150deg,#2c1523,#20101a);border-radius:18px;padding:18px;text-align:left;color:var(--text);transition:.2s}.mode:hover,.mode:focus-visible{border-color:var(--pink);transform:translateY(-2px);outline:none}.mode .emoji{font-size:1.65rem;display:block;margin-bottom:12px}.mode strong{display:block;margin-bottom:5px}.mode small{color:var(--muted);font-size:.86rem}
+.chat-panel{margin-top:28px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#1d0d17}.chat-head{padding:16px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);background:#281321}.avatar{width:38px;height:38px;border-radius:13px;background:#55213b;display:grid;place-items:center}.chat-head small{display:block;color:var(--muted)}.chat-body{padding:20px;min-height:180px;max-height:380px;overflow:auto;display:flex;flex-direction:column;gap:12px}.bubble{max-width:min(85%,620px);padding:12px 15px;border-radius:16px;white-space:pre-wrap}.bot{background:#32182a;border:1px solid #4d2940;align-self:flex-start;border-bottom-left-radius:5px}.user{background:#e9588e;color:#2a0d1a;align-self:flex-end;border-bottom-right-radius:5px}.chat-compose{display:flex;gap:10px;padding:14px;border-top:1px solid var(--line)}.chat-compose input{min-width:0;flex:1;background:#120810;border:1px solid var(--line);border-radius:13px;padding:13px;color:var(--text);outline:none}.chat-compose input:focus{border-color:var(--pink)}.send{border:0;border-radius:13px;background:var(--pink);color:#2b0d1b;padding:0 18px;font-weight:800}.note{font-size:.78rem;color:var(--muted);padding:0 18px 15px}.footer{padding:28px 0 12px;text-align:center;color:#9f7c8d;font-size:.82rem}
+@media(max-width:760px){.wrap{padding:16px}.hero{grid-template-columns:1fr;padding-top:18px}.heart-scene{min-height:210px}.modes{grid-template-columns:repeat(2,1fr)}h1{letter-spacing:-1.2px}.tag{font-size:.72rem}.chat-compose{padding:10px}.send{padding:0 14px}}
+@media(max-width:380px){.modes{grid-template-columns:1fr}.brand{font-size:1.05rem}.tag{display:none}.bubble{max-width:94%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand"><div class="logo">♥</div><div>GPT <span style="color:var(--pink)">LOVE</span></div></div><div class="tag">UM UNIVERSO DE AMOR · 18+</div></header>
+<main>
+<section class="hero">
+<div><div class="eyebrow">Tecnologia que entende o coração</div><h1>O amor merece<br><span>ser ouvido.</span></h1><p class="lead">Um espaço para falar de sentimentos, cuidar do coração, encontrar as palavras certas e explorar o universo das conexões.</p><div class="actions"><button class="primary" id="startBtn">Começar uma conversa ♥</button><button class="secondary" id="modesBtn">Explorar experiências</button></div></div>
+<div class="heart-scene" aria-label="Coração rosa brilhante"><span class="spark s1">✦</span><span class="spark s2">✧</span><span class="big-heart">♥</span><span class="spark s3">✦</span></div>
+</section>
+<section id="experiences"><h2 class="section-title">Como seu coração está hoje?</h2><div class="modes">
+<button class="mode" data-mode="romance"><span class="emoji">💗</span><strong>Romance</strong><small>Um papo doce e carinhoso.</small></button>
+<button class="mode" data-mode="conselho"><span class="emoji">💬</span><strong>Conselhos</strong><small>Vamos pensar juntos, sem julgamentos.</small></button>
+<button class="mode" data-mode="mensagem"><span class="emoji">💌</span><strong>Palavras de amor</strong><small>Cartas, mensagens e declarações.</small></button>
+<button class="mode" data-mode="desabafo"><span class="emoji">🌙</span><strong>Desabafo</strong><small>Um espaço para colocar pra fora.</small></button>
+</div></section>
+<section class="chat-panel" id="chat">
+<div class="chat-head"><div class="avatar">♥</div><div><strong>GPT LOVE</strong><small id="modeLabel">Sua conversa começa aqui</small></div></div>
+<div class="chat-body" id="chatBody" aria-live="polite"><div class="bubble bot">Oi, coração. ❤️ Que bom ter você aqui. O que está passando pela sua cabeça hoje?</div></div>
+<form class="chat-compose" id="chatForm"><input id="message" autocomplete="off" placeholder="Escreva o que você está sentindo..." aria-label="Sua mensagem"><button class="send" type="submit">Enviar</button></form>
+<div class="note">Protótipo inicial: as mensagens ficam apenas nesta página e não são enviadas a uma IA real. Não compartilhe informações íntimas ou dados pessoais.</div>
+</section>
+</main>
+<footer class="footer">GPT LOVE · Um espaço para sentimentos reais, com transparência sobre a inteligência artificial.</footer>
+</div>
+<script>
+const body=document.getElementById('chatBody'), input=document.getElementById('message'), label=document.getElementById('modeLabel');
+let mode='inicio';
+const greetings={
+ romance:'Modo Romance 💗 — Posso conversar com você de um jeito doce e carinhoso. Que tipo de carinho você gostaria de receber hoje?',
+ conselho:'Modo Conselhos 💬 — Me conta o que aconteceu. Vamos olhar para a situação com carinho e sinceridade, sem tirar conclusões precipitadas.',
+ mensagem:'Modo Palavras de amor 💌 — Para quem é a mensagem e o que você quer que essa pessoa sinta ao ler?',
+ desabafo:'Modo Desabafo 🌙 — Pode falar no seu ritmo. Não precisa organizar tudo perfeitamente para começar.'
+};
+function add(text,who){const b=document.createElement('div');b.className='bubble '+who;b.textContent=text;body.appendChild(b);body.scrollTop=body.scrollHeight}
+function chooseMode(m){mode=m;label.textContent=({romance:'Experiência: Romance',conselho:'Experiência: Conselhos',mensagem:'Experiência: Palavras de amor',desabafo:'Experiência: Desabafo'})[m];add(greetings[m],'bot');document.getElementById('chat').scrollIntoView({behavior:'smooth',block:'start'});input.focus()}
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>chooseMode(b.dataset.mode)));
+document.getElementById('startBtn').addEventListener('click',()=>{document.getElementById('chat').scrollIntoView({behavior:'smooth'});input.focus()});
+document.getElementById('modesBtn').addEventListener('click',()=>document.getElementById('experiences').scrollIntoView({behavior:'smooth'}));
+document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();const msg=input.value.trim();if(!msg)return;add(msg,'user');input.value='';const reply=mode==='mensagem'?'Entendi. ❤️ Vamos transformar esse sentimento em palavras bonitas. Neste protótipo, ainda não consigo gerar a mensagem completa com IA; essa será uma das próximas etapas.':mode==='desabafo'?'Obrigado por dividir isso comigo. ❤️ Parece importante para você. O que mais gostaria que eu entendesse sobre essa situação?':mode==='conselho'?'Vamos com calma. ❤️ O que você sabe com certeza sobre a situação e o que ainda está tentando entender?':mode==='romance'?'Que bom que você me contou. 💗 O que faria você se sentir mais querido(a) e compreendido(a) neste momento?':'Estou aqui para te ouvir. ❤️ Quer conversar sobre amor, alguém especial ou algo que esteja pesando no seu coração?';setTimeout(()=>add(reply,'bot'),180)});
+</script>
+</body>
+</html>
