@@ -41,20 +41,100 @@ header{display:flex;align-items:center;justify-content:space-between;gap:16px;pa
 <footer class="footer">GPT LOVE · Um espaço para sentimentos reais, com transparência sobre a inteligência artificial.</footer>
 </div>
 <script>
-const body=document.getElementById('chatBody'), input=document.getElementById('message'), label=document.getElementById('modeLabel');
-let mode='inicio';
-const greetings={
- romance:'Modo Romance 💗 — Posso conversar com você de um jeito doce e carinhoso. Que tipo de carinho você gostaria de receber hoje?',
- conselho:'Modo Conselhos 💬 — Me conta o que aconteceu. Vamos olhar para a situação com carinho e sinceridade, sem tirar conclusões precipitadas.',
- mensagem:'Modo Palavras de amor 💌 — Para quem é a mensagem e o que você quer que essa pessoa sinta ao ler?',
- desabafo:'Modo Desabafo 🌙 — Pode falar no seu ritmo. Não precisa organizar tudo perfeitamente para começar.'
+const body = document.getElementById('chatBody');
+const input = document.getElementById('message');
+const label = document.getElementById('modeLabel');
+const form = document.getElementById('chatForm');
+const sendButton = form.querySelector('button[type="submit"]');
+
+const API_URL = 'https://gpt-love-api.henriquevieiramarques3.workers.dev';
+
+let mode = 'inicio';
+
+const greetings = {
+  romance: 'Modo Romance 💗 — Vamos conversar com carinho.',
+  conselho: 'Modo Conselhos 💬 — Conte o que aconteceu.',
+  mensagem: 'Modo Palavras de amor 💌 — Vamos encontrar as palavras certas.',
+  desabafo: 'Modo Desabafo 🌙 — Pode falar no seu ritmo.'
 };
-function add(text,who){const b=document.createElement('div');b.className='bubble '+who;b.textContent=text;body.appendChild(b);body.scrollTop=body.scrollHeight}
-function chooseMode(m){mode=m;label.textContent=({romance:'Experiência: Romance',conselho:'Experiência: Conselhos',mensagem:'Experiência: Palavras de amor',desabafo:'Experiência: Desabafo'})[m];add(greetings[m],'bot');document.getElementById('chat').scrollIntoView({behavior:'smooth',block:'start'});input.focus()}
-document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>chooseMode(b.dataset.mode)));
-document.getElementById('startBtn').addEventListener('click',()=>{document.getElementById('chat').scrollIntoView({behavior:'smooth'});input.focus()});
-document.getElementById('modesBtn').addEventListener('click',()=>document.getElementById('experiences').scrollIntoView({behavior:'smooth'}));
-document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();const msg=input.value.trim();if(!msg)return;add(msg,'user');input.value='';const reply=mode==='mensagem'?'Entendi. ❤️ Vamos transformar esse sentimento em palavras bonitas. Neste protótipo, ainda não consigo gerar a mensagem completa com IA; essa será uma das próximas etapas.':mode==='desabafo'?'Obrigado por dividir isso comigo. ❤️ Parece importante para você. O que mais gostaria que eu entendesse sobre essa situação?':mode==='conselho'?'Vamos com calma. ❤️ O que você sabe com certeza sobre a situação e o que ainda está tentando entender?':mode==='romance'?'Que bom que você me contou. 💗 O que faria você se sentir mais querido(a) e compreendido(a) neste momento?':'Estou aqui para te ouvir. ❤️ Quer conversar sobre amor, alguém especial ou algo que esteja pesando no seu coração?';setTimeout(()=>add(reply,'bot'),180)});
+
+const apiModes = {
+  romance: 'companheiro',
+  conselho: 'geral',
+  mensagem: 'cupido',
+  desabafo: 'companheiro',
+  inicio: 'geral'
+};
+
+function add(text, who) {
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble ' + who;
+  bubble.textContent = text;
+  body.appendChild(bubble);
+  body.scrollTop = body.scrollHeight;
+}
+
+function chooseMode(m) {
+  mode = m;
+  label.textContent = 'Experiência: ' + m;
+  add(greetings[m], 'bot');
+  document.getElementById('chat').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+  input.focus();
+}
+
+document.querySelectorAll('[data-mode]').forEach(button => {
+  button.addEventListener('click', () => chooseMode(button.dataset.mode));
+});
+
+document.getElementById('startBtn').addEventListener('click', () => {
+  document.getElementById('chat').scrollIntoView({ behavior: 'smooth' });
+  input.focus();
+});
+
+document.getElementById('modesBtn').addEventListener('click', () => {
+  document.getElementById('experiences').scrollIntoView({ behavior: 'smooth' });
+});
+
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+
+  const message = input.value.trim();
+  if (!message) return;
+
+  add(message, 'user');
+  input.value = '';
+  input.disabled = true;
+  sendButton.disabled = true;
+  sendButton.textContent = '...';
+
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message,
+        mode: apiModes[mode] || 'geral'
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.reply) {
+      throw new Error(data.error || 'Não foi possível responder.');
+    }
+
+    add(data.reply, 'bot');
+
+  } catch (error) {
+    add('Não consegui conectar à LOVE AI agora. Tente novamente daqui a pouco. ❤️', 'bot');
+  } finally {
+    input.disabled = false;
+    sendButton.disabled = false;
+    sendButton.textContent = 'Enviar';
+    input.focus();
+  }
+});
 </script>
-</body>
-</html>
